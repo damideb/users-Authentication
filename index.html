@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="authForm" style="display: none">
+        <h2>Sign up or sign In</h2>
+        <input type="email" placeholder="email" id="userEmail"/>
+        <input type="password" placeholder="password" id="userPassword"/> <br><br>
+        <input type="text" id="signup-bio" required/>
+        <label for="signup-bio">One Line bio</label> <br><br>
+        <button id="signUpButton">sign Up</button>
+        <button id="signInButton">sign In</button>
+    </div>
+
+    <div id="modal-account" class="modal">
+        <div class="modal-content">
+          <h4>Account details</h4><br />
+          <div class="account-details" style="display: none;"></div>
+        </div>
+      </div>
+    
+      <!-- CREATE GUIDE MODAL -->
+      <div id="modal-create" class="modal">
+        <div class="modal-content">
+          <h4>Create Guide</h4><br />
+          <form id="create-form">
+            <div class="input-field">
+              <input type="text" id="title" required>
+              <label for="title">Guide Title</label>
+            </div>
+            <div class="input-field">
+              <textarea id="content"  required></textarea>
+              <label for="content">Guide Content</label>
+            </div>
+            <button class="">Create</button>
+          </form>
+        </div>
+      </div>
+    
+      <!-- GUIDE LIST -->
+      <div class="container" >
+        <ul class="guides" style="border: none;">
+          <!-- <li>
+            <div >Guide title</div>
+            <div >Lorem ipsum dolor sit amet.</div>
+          </li>
+          <li>
+            <div >Guide title</div>
+            <div ><span>Lorem ipsum dolor sit amet.</span></div>
+          </li>
+          <li>
+            <div >Guide title</div>
+            <div ><span>Lorem ipsum dolor sit amet.</span></div>
+          </li>
+          <li>
+            <div >Guide title</div>
+            <div ><span>Lorem ipsum dolor sit amet.</span></div>
+          </li> -->
+        </ul>
+      </div>
+
+    <div id="secretContent">
+        <h3>This is top secret</h3>
+        <h1>Authenticated</h1>
+        <button id="signOutButton">Sign out</button>
+
+        
+    </div>
+      <script type="module" src="index.js"></script>
+</body>
+</html>
