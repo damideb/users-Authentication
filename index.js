@@ -34,27 +34,39 @@ const signOutButton = document.querySelector("#signOutButton")
 const createForm = document.querySelector('#create-form')
 const accountDetails = document.querySelector('.account-details')
 const bio = document.querySelector("#signup-bio")
+const name = document.querySelector('#name')
 
 secretContent.style.display ="none"
 
 // sign up
 const userSignUp =   async()=>{
+
     const signUpEmail = userEmail.value
     const signUpPassword = userPassword.value
+
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
     .then((userCredential)=>{
         const user = userCredential.user;
         setDoc(doc(db, 'users', user.uid), {
-            bio:bio.value
+            bio:bio.value,
+            name: name.value
         })
         console.log(user)
         alert("You have created an account successfully")
     })
+    
+    await setDoc(doc(db, "cities", "LA"), {
+        name: "Los Angeles",
+        state: "CA",
+        country: "USA"
+      })
+
     .catch((error)=>{
         const errorCode = error.code
         const errorMessage = error.errorMessage
         console.log(errorCode + errorMessage)
     })
+   
 }
 
 signUpButton.addEventListener("click", userSignUp)
@@ -137,8 +149,9 @@ const setUpUi = (user)=>{
 
         getDoc(doc(db, 'users', user.uid))
         .then((doc)=>{
-            const html = `<div>logged in as ${user.email}</div>
-            <div> ${doc.data().bio}</div>`;
+            const html = `<div>logged in as ${doc.data().name}</div>
+            <div> ${doc.data().bio}</div>
+            `;
 
             accountDetails.innerHTML = html
         })
