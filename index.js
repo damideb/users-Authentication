@@ -51,7 +51,7 @@ const userSignUp =   async()=>{
             bio:bio.value,
             name: name.value
         })
-        console.log(user)
+        
         alert("You have created an account successfully")
     })
     
