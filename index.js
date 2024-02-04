@@ -71,7 +71,7 @@ const userSignUp =   async()=>{
 
 signUpButton.addEventListener("click", userSignUp)
 
-const userSignIn =   async()=>{
+const userSignIn =  async()=>{
     const signInEmail = userEmail.value
     const signInPassword = userPassword.value
     signInWithEmailAndPassword(auth, signInEmail, signInPassword)
@@ -146,7 +146,6 @@ const setUpGuides = (data)=>{
 const setUpUi = (user)=>{
    
     if(user){
-
         getDoc(doc(db, 'users', user.uid))
         .then((doc)=>{
             const html = `<div>logged in as ${doc.data().name}</div>
